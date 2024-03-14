@@ -1,0 +1,15 @@
+
+#!/bin/bash -l
+#$ -l h_rt=16:00:00
+#$ -pe omp 1
+
+export MCR_CACHE_ROOT=$TMPDIR
+export MKL_NUM_THREADS=1
+export NUMEXPR_NUM_THREADS=1
+export OMP_NUM_THREADS=1
+module load anaconda2 
+source activate pyNumbaF 
+python frg2Cur0.py
+
+source deactivate
+
